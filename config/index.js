@@ -10,7 +10,15 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/data': {
+        target: 'http://data.taipei/',  // 遠端 URL Domain
+        changeOrigin: true,
+        pathRewrite: {
+          '^/data': ''
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

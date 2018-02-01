@@ -15,6 +15,11 @@ module.exports = {
     // https://github.com/standard/standard/blob/master/docs/RULES-en.md
     'standard'
   ],
+  globals: {
+    '$': true,
+    '_M': true,
+    'Qs': true
+  },
   // required to lint *.vue files
   plugins: [
     'vue'

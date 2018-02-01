@@ -3,6 +3,7 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+const webpack = require('webpack')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -36,6 +37,10 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      '@C': resolve('src/components'),
+      '@SCSS': resolve('src/assets/scss'),
+      '@UTIL': resolve('src/util'),
+      '@API': resolve('src/api')
     }
   },
   module: {
@@ -88,5 +93,14 @@ module.exports = {
     net: 'empty',
     tls: 'empty',
     child_process: 'empty'
-  }
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+        $: "jquery",
+        _M: resolve('src/store/modules/mutations'),
+        QS: 'Qs'
+        // jQuery: "jquery",
+        // Popper: 'popper.js'
+    })
+  ]
 }

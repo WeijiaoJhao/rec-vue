@@ -1,0 +1,22 @@
+$textColor: green;
+
+h1 {
+    color: $textColor;
+}
+
+// $body-bg: #000;
+// @import '~bootstrap/scss/bootstrap.scss';
+
+
+// $theme-colors: (
+//   "danger": pink
+// );
+$theme-colors: (
+  "custom-color": green
+);
+// Required
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+// Optional
+@import "~bootstrap/scss/_buttons.scss";
