@@ -5,18 +5,30 @@ h1 {
 }
 
 // $body-bg: #000;
-// @import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap/scss/bootstrap.scss';
 
 
 // $theme-colors: (
 //   "danger": pink
 // );
-$theme-colors: (
-  "custom-color": green
-);
+// $theme-colors: (
+//   "custom-color": green
+// );
 // Required
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
+// @import "~bootstrap/scss/functions";
+// @import "~bootstrap/scss/variables";
+// @import "~bootstrap/scss/mixins";
 // Optional
-@import "~bootstrap/scss/_buttons.scss";
+// @import "~bootstrap/scss/_buttons.scss";
+
+
+// pagination input
+.pageInput {
+  width: 60px;
+  text-align: center;
+}
+
+
+.strong {
+  font-weight:bold;
+}
