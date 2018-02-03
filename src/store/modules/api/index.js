@@ -1,4 +1,5 @@
 import { Ajax, API } from '@API'
+import youbikeJSON from '@DATA/youbike'
 
 const state = {
   getData: {}
@@ -6,7 +7,7 @@ const state = {
 
 const actions = {
   async [_M.GET_DATA] ({ commit }, payload) {
-    let data = await Ajax(API.youbike, payload)
+    let data = process.env.NODE_ENV === 'development' ? await Ajax(API.youbike, payload) : youbikeJSON
     data && commit(_M.GET_DATA, data.retVal)
   }
 }

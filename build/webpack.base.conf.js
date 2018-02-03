@@ -40,7 +40,8 @@ module.exports = {
       '@C': resolve('src/components'),
       '@SCSS': resolve('src/assets/scss'),
       '@UTIL': resolve('src/util'),
-      '@API': resolve('src/api')
+      '@API': resolve('src/api'),
+      '@DATA': resolve('data')
     }
   },
   module: {
