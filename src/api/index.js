@@ -14,7 +14,7 @@ axios.interceptors.response.use((response) => {
 })
 
 export const Ajax = async (api, params) => {
-//   console.log('aaa', api, params)
+  // console.log('aaa', api, params, process.env.API_HOST)
   let data = await axios({
     data: params,
     ...api
@@ -27,6 +27,8 @@ export const Ajax = async (api, params) => {
   return data
 }
 
+const domain = (url) => { return process.env.API_HOST + url }
+
 export const API = {
-  youbike: { url: '/data/youbike', method: 'get' }
+  youbike: { url: domain('youbike'), method: 'get' }
 }
