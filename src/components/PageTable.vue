@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="table-responsive-sm">
     <form v-if="isShowLimit">
       <div class="form-group row">
         <label for="limit" class="col-sm-1 col-form-label">limit</label>
@@ -11,29 +11,27 @@
       </div>
     </form><!-- limit -->
 
-    <div class="table-responsive">
-      <table class="table table-hover table-sm">
-        <thead class="thead-light">
-          <tr>
-            <th scope="col" v-for="item in tableOption.tableCell" :key="item.title" :class="item.titleStyle">{{item.title}}</th>
-          </tr>
-        </thead>
-        <tbody v-if="isShowList">
-          <tr v-for="item in dataList" :key="item.sno" @click="open(item)">
-            <td v-for="(td, idx) in tableOption.tableCell" :key="td.key" :class="td.style">
-              <slot :name="td.key + '_' + idx" :value="item">
-                {{ item[td.key] }}
-              </slot>
-            </td>
-          </tr>
-        </tbody>
-        <tbody v-else>
-          <tr>
-            <td :colspan="tableOption.tableCell.length">no data</td>
-          </tr>
-        </tbody>
-      </table>
-    </div><!-- table -->
+    <table class="table table-hover table-sm">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col" v-for="item in tableOption.tableCell" :key="item.title" :class="item.titleStyle">{{item.title}}</th>
+        </tr>
+      </thead>
+      <tbody v-if="isShowList">
+        <tr v-for="item in dataList" :key="item.sno" @click="open(item)">
+          <td v-for="(td, idx) in tableOption.tableCell" :key="td.key" :class="td.style">
+            <slot :name="td.key + '_' + idx" :value="item">
+              {{ item[td.key] }}
+            </slot>
+          </td>
+        </tr>
+      </tbody>
+      <tbody v-else>
+        <tr>
+          <td :colspan="tableOption.tableCell.length">no data</td>
+        </tr>
+      </tbody>
+    </table><!-- table -->
 
     <nav aria-label="Page navigation example" v-if="isShowPagintion">
       <ul class="pagination justify-content-end">

@@ -30,8 +30,8 @@
                 <div class="modal-body">
                   <form>
                     <div class="form-group row" v-for="item in modalList" :key="item.key">
-                      <label :for="item.key" class="col-sm-4 col-form-label">{{item.label}}</label>
-                      <div class="col-sm-8">
+                      <label :for="item.key" class="col-4 col-form-label">{{item.label}}</label>
+                      <div class="col-8">
                         <input type="text" readonly class="form-control-plaintext" :id="item.key" :value="modalData[item.key]">
                       </div>
                     </div>
