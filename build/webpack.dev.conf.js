@@ -7,6 +7,11 @@ const path = require('path')
 const baseWebpackConfig = require('./webpack.base.conf')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+let argv = process.argv[process.argv.length - 1]
+let isThems = ['black', 'default'].includes(argv)
+console.log('fff-1', argv, isThems)
+
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 
