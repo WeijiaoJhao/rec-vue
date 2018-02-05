@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@C/HelloWorld'
-// import HelloWorld from '@/themes/black/components/HelloWorld'
 
 Vue.use(Router)
 

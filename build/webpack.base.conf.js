@@ -5,9 +5,9 @@ const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 const webpack = require('webpack')
 
-let argv = process.argv[process.argv.length - 1]
-let isThems = ['black', 'default'].includes(argv)
-console.log('fff', argv, isThems)
+let themeName = process.env.npm_config_theme
+let hasThemes = ['black', 'default'].includes(themeName)
+// console.log('themeName', themeName, hasThemes)
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -41,9 +41,9 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
-      '@ROUTER': isThems ? resolve('src/router/themes') : resolve('src/router'),
+      '@ROUTER': hasThemes ? resolve('src/router/themes') : resolve('src/router'),
       '@C': resolve('src/components'),
-      '@CT': resolve(`src/themes/${argv}/components`),
+      '@CT': resolve(`src/themes/${themeName}/components`),
       '@SCSS': resolve('src/assets/scss'),
       '@UTIL': resolve('src/util'),
       '@API': resolve('src/api'),
