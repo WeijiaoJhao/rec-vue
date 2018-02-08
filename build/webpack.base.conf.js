@@ -4,10 +4,12 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 const webpack = require('webpack')
+const glob = require('glob')
 
 let themeName = process.env.npm_config_theme
-let hasThemes = ['black', 'default'].includes(themeName)
-// console.log('themeName', themeName, hasThemes)
+let themeList = glob.sync('src/themes/*')
+let hasThemes = themeList.map(v => v.slice(11)).includes(themeName)
+// console.log('themeName', themeName, themeList, hasThemes)
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
