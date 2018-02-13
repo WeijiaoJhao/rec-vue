@@ -5,10 +5,9 @@ import App from './App'
 import router from '@ROUTER'
 import store from './store'
 import 'bootstrap'
-import '@SCSS/_custom.scss'
-// import 'bootstrap/scss/bootstrap.scss'
-
+import '@SCSS/style.scss'
 import 'vue-awesome/icons/search'
+import 'vue-awesome/icons/refresh'
 
 Vue.config.productionTip = false
 

@@ -14,7 +14,11 @@
     <table class="table table-hover table-sm">
       <thead class="thead-light">
         <tr>
-          <th scope="col" v-for="item in tableOption.tableCell" :key="item.title" :class="item.titleStyle">{{item.title}}</th>
+          <th scope="col" v-for="(item, index) in tableOption.tableCell" :key="item.title" :class="item.titleStyle">
+            <slot :name="'title_' + item.key + '_' + index" :title="item">
+              {{item.title}}
+            </slot>
+          </th>
         </tr>
       </thead>
       <tbody v-if="isShowList">

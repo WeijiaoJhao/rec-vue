@@ -6,10 +6,12 @@ const vueLoaderConfig = require('./vue-loader.conf')
 const webpack = require('webpack')
 const glob = require('glob')
 
-let themeName = process.env.npm_config_theme
+let instruct = process.env.npm_config_theme.split('_')
+let themeName = instruct[0]
+let styleName = instruct[1] ? instruct[1] : 'default'
 let themeList = glob.sync('src/themes/*')
 let hasThemes = themeList.map(v => v.slice(11)).includes(themeName)
-// console.log('themeName', themeName, themeList, hasThemes)
+// console.log('themeName', themeName, styleName, themeList, hasThemes)
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -47,9 +49,11 @@ module.exports = {
       '@C': resolve('src/components'),
       '@CT': resolve(`src/themes/${themeName}/components`),
       '@SCSS': resolve('src/assets/scss'),
+      '@STYLE': resolve(`src/assets/scss/${styleName}`),
       '@UTIL': resolve('src/util'),
       '@API': resolve('src/api'),
-      '@DATA': resolve('data')
+      '@DATA': resolve('data'),
+      '@MIXIN': resolve('src/mixins')
     }
   },
   module: {
