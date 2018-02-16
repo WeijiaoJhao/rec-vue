@@ -6,8 +6,8 @@ const vueLoaderConfig = require('./vue-loader.conf')
 const webpack = require('webpack')
 const glob = require('glob')
 
-let instruct = process.env.npm_config_theme.split('_')
-let themeName = instruct[0]
+let instruct = process.env.npm_config_theme ? process.env.npm_config_theme.split('_') : []
+let themeName = instruct[0] ? instruct[0] : ''
 let styleName = instruct[1] ? instruct[1] : 'default'
 let themeList = glob.sync('src/themes/*')
 let hasThemes = themeList.map(v => v.slice(11)).includes(themeName)

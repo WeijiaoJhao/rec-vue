@@ -2,11 +2,11 @@
   <div class="table-responsive-sm">
     <form v-if="isShowLimit">
       <div class="form-group row">
-        <label for="limit" class="col-sm-1 col-form-label">limit</label>
+        <label for="limit" class="col-sm-2 col-form-label">每頁顯示筆數</label>
         <div class="col-sm-2">
-        <select id="limit" class="form-control" v-model="nowLimit" @change="changeLimit">
-          <option v-for="item in limitOptions" :key="item">{{item}}</option>
-        </select>
+          <select id="limit" class="form-control" v-model="nowLimit" @change="changeLimit">
+            <option v-for="item in limitOptions" :key="item">{{item}}</option>
+          </select>
         </div>
       </div>
     </form><!-- limit -->

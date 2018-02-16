@@ -4,6 +4,7 @@
       <div class="row">
         <div class="col">
           <h1>{{ msg }}</h1>
+          <button type="button" class="btn btn-dark" @click="search">search</button>
 
           <page-table :limit="limit" :tableData="tableData" :tableOption="tableOption" @triggerEv="open">
             <template v-for="idx in tableOption.tableCell.length" :slot="`mdayF_${idx - 1}`" slot-scope="{ value }">
@@ -14,9 +15,6 @@
             </template>
           </page-table>
           <!-- PageTable -->
-          <button type="button" class="btn btn-dark" @click="search">Dark</button>
-          <button type="button" class="btn btn-danger">Danger</button>
-          <!--<button type="button" class="btn btn-custom-color">Custom</button>-->
 
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
