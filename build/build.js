@@ -3,6 +3,7 @@ require('./check-versions')()
 
 process.env.NODE_ENV = 'production'
 
+const fs = require('fs')
 const ora = require('ora')
 const rm = require('rimraf')
 const path = require('path')
@@ -10,6 +11,11 @@ const chalk = require('chalk')
 const webpack = require('webpack')
 const config = require('../config')
 const webpackConfig = require('./webpack.prod.conf')
+
+let instruct = process.env.npm_config_theme ? process.env.npm_config_theme.split('_') : []
+let themeName = instruct[0] ? instruct[0] : ''
+let styleName = instruct[1] ? instruct[1] : 'default'
+// console.log('themeName', themeName, styleName)
 
 const spinner = ora('building for production...')
 spinner.start()
@@ -19,13 +25,30 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
   webpack(webpackConfig, (err, stats) => {
     spinner.stop()
     if (err) throw err
-    process.stdout.write(stats.toString({
-      colors: true,
-      modules: false,
-      children: false, // If you are using ts-loader, setting this to true will make TypeScript errors show up during build.
-      chunks: false,
-      chunkModules: false
-    }) + '\n\n')
+
+    if (instruct.length === 0) {
+      process.stdout.write(stats.toString({
+        colors: true,
+        modules: false,
+        children: false, // If you are using ts-loader, setting this to true will make TypeScript errors show up during build.
+        chunks: false,
+        chunkModules: false
+      }) + '\n\n', (err) => {
+        if (err) console.error(err)
+        console.log(`build dev, Write operation complete.`)
+      })
+    } else {
+      fs.writeFile(`logs/${themeName}_${styleName}.txt`, stats.toString({ // Need to create your own folder
+        colors: true,
+        modules: false,
+        children: false,
+        chunks: false,
+        chunkModules: false
+      }) + '\n\n', (err) => {
+        if (err) console.error(err)
+        console.log(`${themeName}_${styleName},Write operation complete.`)
+      })
+    }
 
     if (stats.hasErrors()) {
       console.log(chalk.red('  Build failed with errors.\n'))
