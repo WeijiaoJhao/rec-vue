@@ -1,6 +1,6 @@
 {
   "name": "rec-vue",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Vue.js project",
   "author": "WeijiaoJhao <1713161@gmail.com>",
   "private": true,
@@ -12,8 +12,10 @@
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
     "build": "node build/build.js",
-    "black": "npm run dev --theme=black",
-    "default": "npm run dev --theme=default"
+    "full": "npm run dev --theme=full_default",
+    "full_black": "npm run dev --theme=full_black",
+    "fixed": "npm run dev --theme=fixed_default",
+    "fixed_black": "npm run dev --theme=fixed_black"
   },
   "dependencies": {
     "axios": "^0.17.1",

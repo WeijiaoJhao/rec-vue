@@ -1,15 +1,21 @@
 <template>
   <div class="hello">
-    <div class="container-fluid">
+    <div class="container">
       <div class="row">
         <div class="col">
           <h1>{{ msg }}</h1>
-          <button type="button" class="btn btn-dark" @click="search">search</button>
+          <span class="theme">fixed</span>
 
           <page-table :limit="limit" :tableData="tableData" :tableOption="tableOption" @triggerEv="open">
+            <template v-for="idx in tableOption.tableCell.length" :slot="`title_mdayF_${idx - 1}`" slot-scope="{ title }">
+              {{title.title}}
+              <span :key="idx" title="更新" @click="search">
+                <icon name="refresh"></icon>
+              </span>
+            </template>
             <template v-for="idx in tableOption.tableCell.length" :slot="`mdayF_${idx - 1}`" slot-scope="{ value }">
               {{ value.mdayF }}
-              <span :key="idx" @click="iconEvent(value)">
+              <span :key="idx" title="詳情">
                 <icon name="search"></icon>
               </span>
             </template>
@@ -56,9 +62,5 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-/*
-@import '~@SCSS/_custom.scss';
-*/
 </style>

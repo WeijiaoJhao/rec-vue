@@ -1,0 +1,21 @@
+// @import '~bootstrap/scss/bootstrap.scss';
+// Required
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/_mixins";
+// Optional
+@import "~bootstrap/scss/_grid.scss";
+@import "~bootstrap/scss/_forms.scss";
+@import "~bootstrap/scss/_tables.scss";
+@import "~bootstrap/scss/_pagination.scss";
+@import "~bootstrap/scss/utilities/_flex.scss";
+@import "~bootstrap/scss/_reboot.scss";
+@import "~bootstrap/scss/_modal.scss";
+@import "~bootstrap/scss/_type.scss";
+@import "~bootstrap/scss/_close.scss";
+@import "~bootstrap/scss/_buttons.scss";
+
+
+@import '~@SCSS/_base.scss';  //基本設定
+@import '~@STYLE/_variable.scss';  //變數設定
+@import '~@SCSS/_theme.scss';  //版面配色
