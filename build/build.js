@@ -26,29 +26,17 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
     spinner.stop()
     if (err) throw err
 
-    if (instruct.length === 0) {
-      process.stdout.write(stats.toString({
-        colors: true,
-        modules: false,
-        children: false, // If you are using ts-loader, setting this to true will make TypeScript errors show up during build.
-        chunks: false,
-        chunkModules: false
-      }) + '\n\n', (err) => {
-        if (err) console.error(err)
-        console.log(`build dev, Write operation complete.`)
-      })
-    } else {
-      fs.writeFile(`logs/${themeName}_${styleName}.txt`, stats.toString({ // Need to create your own folder
-        colors: true,
-        modules: false,
-        children: false,
-        chunks: false,
-        chunkModules: false
-      }) + '\n\n', (err) => {
-        if (err) console.error(err)
-        console.log(`${themeName}_${styleName},Write operation complete.`)
-      })
-    }
+    process.stdout.write(stats.toString({
+      colors: true,
+      modules: false,
+      children: false, // If you are using ts-loader, setting this to true will make TypeScript errors show up during build.
+      chunks: false,
+      chunkModules: false
+    }) + '\n\n', (err) => {
+      if (err) console.error(err)
+      instruct.length === 0 && console.log(`build dev, Write operation complete.`)
+      instruct.length === 0 || console.log(`${themeName}_${styleName},Write operation complete.`)
+    })
 
     if (stats.hasErrors()) {
       console.log(chalk.red('  Build failed with errors.\n'))
