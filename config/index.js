@@ -3,6 +3,14 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
+const glob = require('glob')
+
+let instruct = process.env.npm_config_theme ? process.env.npm_config_theme.split('_') : []
+let themeName = instruct[0] ? instruct[0] : ''
+let styleName = instruct[1] ? instruct[1] : 'default'
+let themeList = glob.sync('src/themes/*')
+let hasThemes = themeList.map(v => v.slice(11)).includes(themeName)
+// console.log('themeName', themeName, styleName, themeList, hasThemes)
 
 module.exports = {
   dev: {
@@ -51,13 +59,15 @@ module.exports = {
     cssSourceMap: true
   },
 
-  build: {
+  build: { // (目前for demo做設定，實際一次build多theme，以設定index與assetsPublicPath做控制)
     // Template for index.html
+    // index: hasThemes ? path.resolve(__dirname, `../dist/${themeName}/${styleName}/index.html`) : path.resolve(__dirname, '../dist/index.html'),
     index: path.resolve(__dirname, '../dist/index.html'),
 
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: 'static',
+    assetsSubDirectory: hasThemes ? `${themeName}/${styleName}` : 'static',
+    // assetsPublicPath: hasThemes ? '/' : './',
     assetsPublicPath: './',
 
     /**
