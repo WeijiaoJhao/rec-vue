@@ -12,6 +12,7 @@
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
     "build": "node build/build.js",
+    "buildAll": "node build/buildAll.js",
     "full": "npm run dev --theme=full_default",
     "full_black": "npm run dev --theme=full_black",
     "fixed": "npm run dev --theme=fixed_default",
