@@ -1,6 +1,7 @@
 import base64 from 'hi-base64'
 import moment from 'moment'
 
+// Cookie
 export const setCookie = (cname, cvalue) => {
   document.cookie = cname + '=' + base64.encode(encodeURIComponent(JSON.stringify(cvalue))) + ';' + ';path=/'
 }
@@ -27,6 +28,22 @@ export const delCookie = (cname) => {
   document.cookie = cname + '=' + cval + '; expires=' + exp.toGMTString()
 }
 
+// localStorage
+export const setStorage = (key, value) => {
+  localStorage[key] = base64.encode(encodeURIComponent(JSON.stringify(value)))
+}
+
+export const getStorage = key => localStorage[key] ? JSON.parse(decodeURIComponent(base64.decode(localStorage[key]))) : ''
+
+export const removeStorage = key => localStorage.removeItem(key)
+
+export const removeAllStorage = () => localStorage.clear()
+
+export const storageList = {
+  mis: 'mis'
+}
+
+// formatDate
 export const formatDate = (date) => {
   return moment(date.replace(/(\d{8})(\d{6})/, '$1 $2')).format('YYYY-MM-DD hh:mm:ss A')
 }

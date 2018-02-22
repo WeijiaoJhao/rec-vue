@@ -6,8 +6,20 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+import { getStorage, storageList } from '@UTIL'
+
 export default {
-  name: 'App'
+  name: 'App',
+  created () {
+    this[_M.GET_MIS]()
+    document.title = getStorage(storageList.mis).DOCUMENT_TITLE_EN
+  },
+  methods: {
+    ...mapActions([
+      _M.GET_MIS
+    ])
+  }
 }
 </script>
 

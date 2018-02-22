@@ -27,7 +27,7 @@ export const Ajax = async (api, params) => {
   return data
 }
 
-const domain = (url) => { return process.env.API_HOST + url }
+const domain = (url) => { return process.env.API_HOST + url } // process.env.API_HOST VS mis(seeting domain url)
 
 export const API = {
   youbike: { url: domain('youbike'), method: 'get' }
