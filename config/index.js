@@ -12,6 +12,8 @@ let themeList = glob.sync('src/themes/*')
 let hasThemes = themeList.map(v => v.slice(11)).includes(themeName)
 // console.log('themeName', themeName, styleName, themeList, hasThemes)
 
+let port = 8080 + Math.floor(Math.random() * 100)
+
 module.exports = {
   dev: {
 
@@ -30,7 +32,7 @@ module.exports = {
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
-    port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    port: port, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,
     notifyOnErrors: true,
