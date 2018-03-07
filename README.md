@@ -1,6 +1,8 @@
 # rec-vue
 
-> A Vue.js project
+> A Vue.js project that offers multiple theme changes
+
+[demo](https://weijiaojhao.github.io/rec-vue/dist/index.html#/)
 
 ## Build Setup
 
@@ -8,23 +10,18 @@
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:8080
+# serve with hot reload at localhost:xxxx (general application architecture)
 npm run dev
 
-# build for production with minification
+# serve with hot reload at localhost:xxxx (for multiple theme)
+npm run full
+npm run full_black
+npm run fixed
+npm run fixed_black
+
+# build for production with minification (general application architecture)
 npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
+# build for production with minification (for multiple theme)
+npm run buildAll
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
